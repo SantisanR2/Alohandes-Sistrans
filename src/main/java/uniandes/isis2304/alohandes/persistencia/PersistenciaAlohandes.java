@@ -19,5 +19,33 @@ public class PersistenciaAlohandes {
 	
 	private List <String> tablas;
 	
+	private SQLUtil sqlUtil;
+	
+	private SQLApartamento sqlApartamento;
+	
+	private SQLComunidad sqlComunidad;
+	
+	private SQLEmpresaHotelera sqlEmpresaHotelera;
+	
+	private SQLHabitacionCompartida sqlHabitacionCompartida;
+	
+	private SQLHabitacionVivienda sqlHabitacionVivienda;
+	
+	private SQLHotel sqlHotel;
+	
+	private SQLPersonaNatural sqlPersonaNatural;
+	
+	private SQLReserva sqlReserva;
+	
+	private SQLServicio sqlServicio;
+	
+	private SQLUsuario sqlUsuario;
+	
+	private SQLViviendaPorDia sqlViviendaPorDia;
+	
+	private SQLViviendaPorSemestre sqlViviendaPorSemestre;
+	
+	private SQLViviendaUniversitaria sqlViviendaUniversitaria;
+	
 	//Agregar las clases SQL
 }

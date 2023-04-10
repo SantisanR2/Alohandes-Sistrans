@@ -8,13 +8,10 @@ public class Comunidad {
 	
 	private int edad;
 	
-	private int dineroRecogido;
-	
-	public Comunidad(long id, String nombre, int edad, int dineroRecogido) {
+	public Comunidad(long id, String nombre, int edad) {
 		this.id = id;
 		this.nombre = nombre;
 		this.edad = edad;
-		this.dineroRecogido = dineroRecogido;
 	}
 
 	public long getId() {
@@ -39,13 +36,5 @@ public class Comunidad {
 
 	public void setEdad(int edad) {
 		this.edad = edad;
-	}
-
-	public int getDineroRecogido() {
-		return dineroRecogido;
-	}
-
-	public void setDineroRecogido(int dineroRecogido) {
-		this.dineroRecogido = dineroRecogido;
 	}
 }

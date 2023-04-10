@@ -9,15 +9,12 @@ public class PersonaNatural {
 	private String cedula;
 	
 	private int edad;
-	
-	private int dineroRecogido;
 
-	public PersonaNatural(long id, String nombre, String cedula, int edad, int dineroRecogido) {
+	public PersonaNatural(long id, String nombre, String cedula, int edad) {
 		this.id = id;
 		this.nombre = nombre;
 		this.cedula = cedula;
 		this.edad = edad;
-		this.dineroRecogido = dineroRecogido;
 	}
 
 	public long getId() {
@@ -51,13 +48,4 @@ public class PersonaNatural {
 	public void setEdad(int edad) {
 		this.edad = edad;
 	}
-
-	public int getDineroRecogido() {
-		return dineroRecogido;
-	}
-
-	public void setDineroRecogido(int dineroRecogido) {
-		this.dineroRecogido = dineroRecogido;
-	}
-
 }

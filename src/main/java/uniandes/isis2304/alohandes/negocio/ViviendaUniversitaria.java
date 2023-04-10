@@ -9,15 +9,12 @@ public class ViviendaUniversitaria {
 	private String registroCamara;
 	
 	private String registroSuperintendencia;
-	
-	private int dineroRecogido;
 
-	public ViviendaUniversitaria(long id, String nombre, String registroCamara, String registroSuperintendencia, int dineroRecogido){
+	public ViviendaUniversitaria(long id, String nombre, String registroCamara, String registroSuperintendencia){
 		this.id = id;
 		this.nombre = nombre;
 		this.registroCamara = registroCamara;
 		this.registroSuperintendencia = registroSuperintendencia;
-		this.dineroRecogido = dineroRecogido;
 	}
 
 	public long getId() {
@@ -51,13 +48,4 @@ public class ViviendaUniversitaria {
 	public void setRegistroSuperintendencia(String registroSuperintendencia) {
 		this.registroSuperintendencia = registroSuperintendencia;
 	}
-
-	public int getDineroRecogido() {
-		return dineroRecogido;
-	}
-
-	public void setDineroRecogido(int dineroRecogido) {
-		this.dineroRecogido = dineroRecogido;
-	}
-
 }
