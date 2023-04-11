@@ -15,8 +15,8 @@ public class SQLUtil {
 		this.pa = pa;
 	}
 	
-	public List darDineroPorAnhio(PersistenceManager pm) {
-		Query q = pm.newQuery(SQL, "SELECT * FROM " + pa.darTablaDineroRecibido());
+	public List darDineroPorAnhio(PersistenceManager pm, int anhio) {
+		Query q = pm.newQuery(SQL, "SELECT * FROM " + pa.darTablaDineroRecibido() + " WHERE anhio=" + anhio);
 		return q.executeResultList();
 	}
 	
