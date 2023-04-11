@@ -62,6 +62,7 @@ public class PersistenciaAlohandes {
 	
 	//Agregar las clases SQL
 
+
 	private List <String> leerNombresTablas (JsonObject tableConfig)
 	{
 		JsonArray nombres = tableConfig.getAsJsonArray("tablas") ;
@@ -86,16 +87,6 @@ public class PersistenciaAlohandes {
 		return resp;
 	}
 
-	private PersistenciaAlohandes (JsonObject tableConfig)
-	{
-		crearClasesSQL ();
-		tablas = leerNombresTablas (tableConfig);
-		
-		String unidadPersistencia = tableConfig.get ("unidadPersistencia").getAsString ();
-		log.trace ("Accediendo unidad de persistencia: " + unidadPersistencia);
-		pmf = JDOHelper.getPersistenceManagerFactory (unidadPersistencia);
-	}
-
 	public String darTablaAlohamiento ()
 	{
 		return tablas.get (0);
@@ -106,7 +97,7 @@ public class PersistenciaAlohandes {
 		return tablas.get (1);
 	}
 
-	private PersistenciaAlohandes ()
+	public PersistenciaAlohandes ()
 	{
 		pmf = JDOHelper.getPersistenceManagerFactory("Alohandes");		
 		crearClasesSQL ();
@@ -121,6 +112,8 @@ public class PersistenciaAlohandes {
 	private void crearClasesSQL ()
 		{
 			sqlReserva = new SQLReserva(this);
+			sqlAlohamiento = new SQLAlohamiento(this);
+			sqlUtil = new SQLUtil(this);
 		}
 
 	private long nextval ()
@@ -209,6 +202,84 @@ public class PersistenciaAlohandes {
 //        	e.printStackTrace();
         	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
             return -1;
+        }
+        finally
+        {
+            if (tx.isActive())
+            {
+                tx.rollback();
+            }
+            pm.close();
+        }
+	}
+	
+	public String darDineroRecibido(int anhio) {
+		PersistenceManager pm = pmf.getPersistenceManager();
+        Transaction tx=pm.currentTransaction();
+        try
+        {
+            tx.begin();
+            List resp = sqlUtil.darDineroPorAnhio(pm, anhio);
+            tx.commit();
+            return resp.toString();
+        }
+        catch (Exception e)
+        {
+//        	e.printStackTrace();
+        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+            return e.getMessage();
+        }
+        finally
+        {
+            if (tx.isActive())
+            {
+                tx.rollback();
+            }
+            pm.close();
+        }
+	}
+	
+	public String dar20MasPopulares() {
+		PersistenceManager pm = pmf.getPersistenceManager();
+        Transaction tx=pm.currentTransaction();
+        try
+        {
+            tx.begin();
+            List resp = sqlUtil.darOfertasMasPopulares(pm);
+            tx.commit();
+            return resp.toString();
+        }
+        catch (Exception e)
+        {
+//        	e.printStackTrace();
+        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+            return "-1";
+        }
+        finally
+        {
+            if (tx.isActive())
+            {
+                tx.rollback();
+            }
+            pm.close();
+        }
+	}
+	
+	public String darIndiceOcupacion() {
+		PersistenceManager pm = pmf.getPersistenceManager();
+        Transaction tx=pm.currentTransaction();
+        try
+        {
+            tx.begin();
+            List resp = sqlUtil.darIndiceOcupacion(pm);
+            tx.commit();
+            return resp.toString();
+        }
+        catch (Exception e)
+        {
+//        	e.printStackTrace();
+        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+            return "-1";
         }
         finally
         {

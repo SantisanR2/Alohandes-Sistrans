@@ -17,17 +17,17 @@ public class SQLUtil {
 	
 	public List darDineroPorAnhio(PersistenceManager pm, int anhio) {
 		Query q = pm.newQuery(SQL, "SELECT * FROM " + pa.darTablaDineroRecibido() + " WHERE anhio=" + anhio);
-		return q.executeResultList();
+		return q.executeList();
 	}
 	
 	public List darOfertasMasPopulares(PersistenceManager pm) {
 		Query q = pm.newQuery(SQL, "SELECT idalohamiento, COUNT(*) FROM " + pa.darTablaDineroRecibido() + " GROUP BY idalohamiento ORDER BY COUNT(*) DESC");
-		return q.executeResultList();
+		return q.executeList();
 	}
 	
 	public List darIndiceOcupacion(PersistenceManager pm) {
 		Query q = pm.newQuery(SQL, "SELECT * FROM " + pa.darTablaIndiceOcupacion());
-		return q.executeResultList();
+		return q.executeList();
 	}
 
     public long nextval(PersistenceManager persistenceManager) {

@@ -1,0 +1,4 @@
+15:55:02,428 (main) ERROR [uniandes.isis2304.alohandes.persistencia.PersistenciaAlohandes] - Exception : Cannot call executeResultList method when query has result unset. Call executeList instead.
+
+15:55:45,435 (main) ERROR [uniandes.isis2304.alohandes.persistencia.PersistenciaAlohandes] - Exception : Cannot call executeResultList method when query has result unset. Call executeList instead.
+
