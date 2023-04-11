@@ -15,6 +15,9 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
+import uniandes.isis2304.alohandes.negocio.ListaDinero;
+import uniandes.isis2304.alohandes.negocio.ListaIndiceOcupacion;
+import uniandes.isis2304.alohandes.negocio.OfertasPopulares;
 import uniandes.isis2304.alohandes.negocio.Reserva;
 
 
@@ -219,9 +222,13 @@ public class PersistenciaAlohandes {
         try
         {
             tx.begin();
-            List resp = sqlUtil.darDineroPorAnhio(pm, anhio);
+            List<ListaDinero> resp = sqlUtil.darDineroPorAnhio(pm, anhio);
             tx.commit();
-            return resp.toString();
+            String str = "";
+            for (int i =0;i<resp.size();i++) {
+				str += resp.get(i).toString();
+			}
+            return str;
         }
         catch (Exception e)
         {
@@ -245,9 +252,13 @@ public class PersistenciaAlohandes {
         try
         {
             tx.begin();
-            List resp = sqlUtil.darOfertasMasPopulares(pm);
+            List<OfertasPopulares> resp = sqlUtil.darOfertasMasPopulares(pm);
             tx.commit();
-            return resp.toString();
+            String str = "En orden los alojamientos más populares son: \n";
+            for (int i =0;i<resp.size();i++) {
+				str += resp.get(i).toString();
+			}
+            return str;
         }
         catch (Exception e)
         {
@@ -271,9 +282,13 @@ public class PersistenciaAlohandes {
         try
         {
             tx.begin();
-            List resp = sqlUtil.darIndiceOcupacion(pm);
+            List<ListaIndiceOcupacion> resp = sqlUtil.darIndiceOcupacion(pm);
             tx.commit();
-            return resp.toString();
+            String str = "";
+            for (int i =0;i<resp.size();i++) {
+				str += resp.get(i).toString();
+			}
+            return str;
         }
         catch (Exception e)
         {
