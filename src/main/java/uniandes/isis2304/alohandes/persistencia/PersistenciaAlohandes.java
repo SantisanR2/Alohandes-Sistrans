@@ -94,7 +94,7 @@ public class PersistenciaAlohandes {
 
 	public String darTablaReserva ()
 	{
-		return tablas.get (1);
+		return "RESERVA";
 	}
 
 	public PersistenciaAlohandes ()
@@ -292,10 +292,10 @@ public class PersistenciaAlohandes {
 	}
 	
 	public String darTablaDineroRecibido() {
-		return "DINERO_RECIBIDO";
+		return "DINERORECIBIDO";
 	}
 	
 	public String darTablaIndiceOcupacion() {
-		return "INDICE_OCUPACION";
+		return "INDICEOCUPACION";
 	}
 }

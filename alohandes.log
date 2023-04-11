@@ -2,3 +2,9 @@
 
 15:55:45,435 (main) ERROR [uniandes.isis2304.alohandes.persistencia.PersistenciaAlohandes] - Exception : Cannot call executeResultList method when query has result unset. Call executeList instead.
 
+17:02:39,820 (main) ERROR [uniandes.isis2304.alohandes.persistencia.PersistenciaAlohandes] - Exception : Error con la ejecucion de Query de SQL "SELECT * FROM DINERO_RECIBIDO WHERE anhio=2023".
+ORA-00942: la tabla o vista no existe
+
+17:03:42,390 (main) ERROR [uniandes.isis2304.alohandes.persistencia.PersistenciaAlohandes] - Exception : Error con la ejecucion de Query de SQL "SELECT idalohamiento, COUNT(*) FROM DINERORECIBIDO GROUP BY idalohamiento ORDER BY COUNT(*) DESC".
+ORA-00904: "IDALOHAMIENTO": identificador no válido
+

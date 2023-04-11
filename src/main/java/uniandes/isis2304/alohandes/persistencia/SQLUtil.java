@@ -21,7 +21,7 @@ public class SQLUtil {
 	}
 	
 	public List darOfertasMasPopulares(PersistenceManager pm) {
-		Query q = pm.newQuery(SQL, "SELECT idalohamiento, COUNT(*) FROM " + pa.darTablaDineroRecibido() + " GROUP BY idalohamiento ORDER BY COUNT(*) DESC");
+		Query q = pm.newQuery(SQL, "SELECT idalohamiento, COUNT(*) FROM " + pa.darTablaReserva() + " GROUP BY idalohamiento ORDER BY COUNT(*) DESC");
 		return q.executeList();
 	}
 	
