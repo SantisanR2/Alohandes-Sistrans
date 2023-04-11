@@ -29,4 +29,8 @@ public class SQLUtil {
 		Query q = pm.newQuery(SQL, "SELECT * FROM " + pa.darTablaIndiceOcupacion());
 		return q.executeResultList();
 	}
+
+    public long nextval(PersistenceManager persistenceManager) {
+        return 0;
+    }
 }
