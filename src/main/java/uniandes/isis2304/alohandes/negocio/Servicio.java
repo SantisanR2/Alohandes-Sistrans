@@ -10,24 +10,14 @@ public class Servicio {
 	
 	private int precio;
 	
-	private long idHotel;
-	
-	private long idHabitacionVivienda;
-	
-	private long idViviendaPorDia;
-	
-	private long idViviendaPorSemestre;
+	private long idAlohamiento;
 
-	public Servicio(long id, String nombre, String descripcion, int precio, long idHotel, long idHabitacionVivienda,
-			long idViviendaPorDia, long idViviendaPorSemestre) {
+	public Servicio(long id, String nombre, String descripcion, int precio, long idAlohamiento) {
 		this.id = id;
 		this.nombre = nombre;
 		this.descripcion = descripcion;
 		this.precio = precio;
-		this.idHotel = idHotel;
-		this.idHabitacionVivienda = idHabitacionVivienda;
-		this.idViviendaPorDia = idViviendaPorDia;
-		this.idViviendaPorSemestre = idViviendaPorSemestre;
+		this.idAlohamiento = idAlohamiento;
 	}
 
 	public long getId() {
@@ -62,36 +52,11 @@ public class Servicio {
 		this.precio = precio;
 	}
 
-	public long getIdHotel() {
-		return idHotel;
+	public long getIdAlohamiento() {
+		return idAlohamiento;
 	}
 
-	public void setIdHotel(long idHotel) {
-		this.idHotel = idHotel;
+	public void setIdAlohamiento(long idAlohamiento) {
+		this.idAlohamiento = idAlohamiento;
 	}
-
-	public long getIdHabitacionVivienda() {
-		return idHabitacionVivienda;
-	}
-
-	public void setIdHabitacionVivienda(long idHabitacionVivienda) {
-		this.idHabitacionVivienda = idHabitacionVivienda;
-	}
-
-	public long getIdViviendaPorDia() {
-		return idViviendaPorDia;
-	}
-
-	public void setIdViviendaPorDia(long idViviendaPorDia) {
-		this.idViviendaPorDia = idViviendaPorDia;
-	}
-
-	public long getIdViviendaPorSemestre() {
-		return idViviendaPorSemestre;
-	}
-
-	public void setIdViviendaPorSemestre(long idViviendaPorSemestre) {
-		this.idViviendaPorSemestre = idViviendaPorSemestre;
-	}
-
 }

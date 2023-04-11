@@ -48,4 +48,14 @@ public class PersistenciaAlohandes {
 	private SQLViviendaUniversitaria sqlViviendaUniversitaria;
 	
 	//Agregar las clases SQL
+	
+	
+	
+	public String darTablaDineroRecibido() {
+		return "DINERO_RECIBIDO";
+	}
+	
+	public String darTablaIndiceOcupacion() {
+		return "INDICE_OCUPACION";
+	}
 }

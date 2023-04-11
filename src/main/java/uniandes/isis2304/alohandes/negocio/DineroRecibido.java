@@ -6,21 +6,12 @@ public class DineroRecibido {
 	
 	private int anhio;
 	
-	private long idComunidad;
-	
-	private long idEmpresaHotelera;
-	
-	private long idPersonaNatural;
-	
-	private long idViviendaUniversitaria;
+	private long idProveedor;
 
-	public DineroRecibido(int dinero, int anhio, long idComunidad, long idEmpresaHotelera, long idPersonaNatural, long idViviendaUniversitaria) {
+	public DineroRecibido(int dinero, int anhio, long idProveedor) {
 		this.dinero = dinero;
 		this.anhio = anhio;
-		this.idComunidad = idComunidad;
-		this.idEmpresaHotelera = idEmpresaHotelera;
-		this.idPersonaNatural = idPersonaNatural;
-		this.idViviendaUniversitaria = idViviendaUniversitaria;
+		this.idProveedor = idProveedor;
 	}
 
 	public int getDinero() {
@@ -37,5 +28,13 @@ public class DineroRecibido {
 
 	public void setAnhio(int anhio) {
 		this.anhio = anhio;
+	}
+
+	public long getIdProveedor() {
+		return idProveedor;
+	}
+
+	public void setIdProveedor(long idProveedor) {
+		this.idProveedor = idProveedor;
 	}
 }

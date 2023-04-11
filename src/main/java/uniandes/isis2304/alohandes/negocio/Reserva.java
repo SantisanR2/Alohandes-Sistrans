@@ -8,39 +8,15 @@ public class Reserva {
 	
 	private int precio;
 	
-	private long idHotel;
-	
-	private long idhabitacionCompartida;
-	
-	private long idHabitacionVivienda;
-	
-	private long idApartamento;
-	
-	private long idViviendaPorDia;
-	
-	private long idViviendaPorSemestre;
+	private long idAlohamiento;
 	
 	private long idUsuario;
 
-	public Reserva(long id, String fecha, int precio, long idHotel, long idhabitacionCompartida,
-			long idHabitacionVivienda, long idApartamento, long idViviendaPorDia, long idViviendaPorSemestre, long idUsuario) {
+	public Reserva(long id, String fecha, int precio, long idAlohamiento, long idUsuario) {
 		this.id = id;
 		this.fecha = fecha;
 		this.precio = precio;
-		this.idHotel = idHotel;
-		this.idhabitacionCompartida = idhabitacionCompartida;
-		this.idHabitacionVivienda = idHabitacionVivienda;
-		this.idApartamento = idApartamento;
-		this.idViviendaPorDia = idViviendaPorDia;
-		this.idViviendaPorSemestre = idViviendaPorSemestre;
-		this.idUsuario = idUsuario;
-	}
-
-	public long getIdUsuario() {
-		return idUsuario;
-	}
-
-	public void setIdUsuario(long idUsuario) {
+		this.idAlohamiento = idAlohamiento;
 		this.idUsuario = idUsuario;
 	}
 
@@ -68,52 +44,19 @@ public class Reserva {
 		this.precio = precio;
 	}
 
-	public long getIdHotel() {
-		return idHotel;
+	public long getIdAlohamiento() {
+		return idAlohamiento;
 	}
 
-	public void setIdHotel(long idHotel) {
-		this.idHotel = idHotel;
+	public void setIdAlohamiento(long idAlohamiento) {
+		this.idAlohamiento = idAlohamiento;
 	}
 
-	public long getIdhabitacionCompartida() {
-		return idhabitacionCompartida;
+	public long getIdUsuario() {
+		return idUsuario;
 	}
 
-	public void setIdhabitacionCompartida(long idhabitacionCompartida) {
-		this.idhabitacionCompartida = idhabitacionCompartida;
+	public void setIdUsuario(long idUsuario) {
+		this.idUsuario = idUsuario;
 	}
-
-	public long getIdHabitacionVivienda() {
-		return idHabitacionVivienda;
-	}
-
-	public void setIdHabitacionVivienda(long idHabitacionVivienda) {
-		this.idHabitacionVivienda = idHabitacionVivienda;
-	}
-
-	public long getIdApartamento() {
-		return idApartamento;
-	}
-
-	public void setIdApartamento(long idApartamento) {
-		this.idApartamento = idApartamento;
-	}
-
-	public long getIdViviendaPorDia() {
-		return idViviendaPorDia;
-	}
-
-	public void setIdViviendaPorDia(long idViviendaPorDia) {
-		this.idViviendaPorDia = idViviendaPorDia;
-	}
-
-	public long getIdViviendaPorSemestre() {
-		return idViviendaPorSemestre;
-	}
-
-	public void setIdViviendaPorSemestre(long idViviendaPorSemestre) {
-		this.idViviendaPorSemestre = idViviendaPorSemestre;
-	}
-
 }
