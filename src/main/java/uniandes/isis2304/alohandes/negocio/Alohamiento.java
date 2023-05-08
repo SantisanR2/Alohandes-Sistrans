@@ -1,19 +1,19 @@
 package uniandes.isis2304.alohandes.negocio;
 
 public class Alohamiento {
-	
+
 	private long id;
-	
+
 	private long idApartamento;
-	
+
 	private long idHabitacionCompartida;
-	
+
 	private long idHabitacionVivienda;
-	
+
 	private long idHotel;
-	
+
 	private long idViviendaPorDia;
-	
+
 	private long idViviendaPorSemestre;
 
 	public Alohamiento(long id, long idApartamento, long idHabitacionCompartida, long idHabitacionVivienda,

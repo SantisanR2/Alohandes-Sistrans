@@ -1,15 +1,15 @@
 package uniandes.isis2304.alohandes.negocio;
 
 public class Reserva {
-	
+
 	private long id;
-	
+
 	private String fecha;
-	
+
 	private int precio;
-	
+
 	private long idAlohamiento;
-	
+
 	private long idUsuario;
 
 	public Reserva(long id, String fecha, int precio, long idAlohamiento, long idUsuario) {

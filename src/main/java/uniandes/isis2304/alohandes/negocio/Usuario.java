@@ -1,17 +1,17 @@
 package uniandes.isis2304.alohandes.negocio;
 
 public class Usuario {
-	
+
 	private long id;
-	
+
 	private String nombre;
-	
+
 	private String cedula;
-	
+
 	private int edad;
-	
+
 	private String celular;
-	
+
 	private String vinculacion;
 
 	public Usuario(long id, String nombre, String cedula, int edad, String celular, String vinculacion) {

@@ -1,17 +1,17 @@
 package uniandes.isis2304.alohandes.negocio;
 
 public class ListaIndiceOcupacion {
-	
+
 	private int indiceOcupacion;
-	
+
 	private long idAlohamiento;
-	
+
 	public ListaIndiceOcupacion(int indiceOcupacion, long idAlohamiento) {
 		super();
 		this.indiceOcupacion = indiceOcupacion;
 		this.idAlohamiento = idAlohamiento;
 	}
-	
+
 	public ListaIndiceOcupacion() {
 		this.indiceOcupacion = 0;
 		this.idAlohamiento = 0;
@@ -37,7 +37,7 @@ public class ListaIndiceOcupacion {
 	public String toString() {
 		return "[indiceOcupacion=" + indiceOcupacion + ", idAlohamiento=" + idAlohamiento + "]\n";
 	}
-	
-	
+
+
 
 }

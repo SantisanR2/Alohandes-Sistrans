@@ -1,15 +1,15 @@
 package uniandes.isis2304.alohandes.negocio;
 
 public class Servicio {
-	
+
 	private long id;
-	
+
 	private String nombre;
-	
+
 	private String descripcion;
-	
+
 	private int precio;
-	
+
 	private long idAlohamiento;
 
 	public Servicio(long id, String nombre, String descripcion, int precio, long idAlohamiento) {

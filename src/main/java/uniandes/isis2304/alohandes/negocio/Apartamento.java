@@ -1,19 +1,19 @@
 package uniandes.isis2304.alohandes.negocio;
 
 public class Apartamento{
-	
+
 	private long id;
-	
+
 	private String ubicacion;
-	
+
 	private int precio;
-	
+
 	private int precioEspecial;
-	
+
 	private int tamanhio;
-	
+
 	private long idPersonaNatural;
-	
+
 	private boolean amoblado;
 
 	public Apartamento(long id, String ubicacion, int precio, int precioEspecial, int tamanhio, long idPersonaNatural,
@@ -81,5 +81,5 @@ public class Apartamento{
 
 	public void setAmoblado(boolean amoblado) {
 		this.amoblado = amoblado;
-	}	
+	}
 }

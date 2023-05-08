@@ -20,7 +20,7 @@ public class SQLAlohamiento {
 	{
         Query q = pm.newQuery(SQL, "DELETE FROM " + pp.darTablaAlohamiento  () + " WHERE id = ?");
         q.setParameters(idAlohamiento);
-        return (long) q.executeUnique();            
+        return (long) q.executeUnique();
 	}
 
 }

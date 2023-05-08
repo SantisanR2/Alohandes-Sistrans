@@ -1,17 +1,17 @@
 package uniandes.isis2304.alohandes.negocio;
 
 public class ViviendaPorDia {
-	
+
 	private long id;
-	
+
 	private String ubicacion;
-	
+
 	private String caracteristicasVivienda;
-	
+
 	private String caracteristicasSeguro;
-	
+
 	private int precio;
-	
+
 	private int tamanhio;
 
 	private long idComunidad;
@@ -82,5 +82,5 @@ public class ViviendaPorDia {
 	public void setIdComunidad(long idComunidad) {
 		this.idComunidad = idComunidad;
 	}
-	
+
 }

@@ -3,11 +3,11 @@ package uniandes.isis2304.alohandes.negocio;
 public class Comunidad {
 
 	private long id;
-	
+
 	private String nombre;
-	
+
 	private int edad;
-	
+
 	public Comunidad(long id, String nombre, int edad) {
 		this.id = id;
 		this.nombre = nombre;

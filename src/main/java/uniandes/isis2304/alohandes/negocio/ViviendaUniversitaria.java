@@ -1,13 +1,13 @@
 package uniandes.isis2304.alohandes.negocio;
 
 public class ViviendaUniversitaria {
-	
+
 	private long id;
-	
+
 	private String nombre;
-	
+
 	private String registroCamara;
-	
+
 	private String registroSuperintendencia;
 
 	public ViviendaUniversitaria(long id, String nombre, String registroCamara, String registroSuperintendencia){

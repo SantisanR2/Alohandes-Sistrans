@@ -1,19 +1,19 @@
 package uniandes.isis2304.alohandes.negocio;
 
 public class Hotel {
-	
+
 	private long id;
-	
+
 	private String nombre;
-	
+
 	private String ubicacion;
-	
+
 	private String tipoHabitacion;
-	
+
 	private int precio;
-	
+
 	private int tamanhio;
-	
+
 	private long idEmpresaHotelera;
 
 	public Hotel(long id, String nombre, String ubicacion, String tipoHabitacion, int precio, int tamanhio, long idEmpresaHotelera) {

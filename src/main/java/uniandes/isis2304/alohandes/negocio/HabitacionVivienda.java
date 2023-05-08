@@ -1,17 +1,17 @@
 package uniandes.isis2304.alohandes.negocio;
 
 public class HabitacionVivienda {
-	
+
 	private long id;
-	
+
 	private String ubicacion;
-	
+
 	private int precio;
-	
+
 	private int precioEspecial;
-	
+
 	private int tamanhio;
-	
+
 	private long idPersonaNatural;
 
 	public HabitacionVivienda(long id, String ubicacion, int precio, int precioEspecial, int tamanhio, long idPersonaNatural) {

@@ -1,13 +1,13 @@
 package uniandes.isis2304.alohandes.negocio;
 
 public class PersonaNatural {
-	
+
 	private long id;
-	
+
 	private String nombre;
-	
+
 	private String cedula;
-	
+
 	private int edad;
 
 	public PersonaNatural(long id, String nombre, String cedula, int edad) {

@@ -1,23 +1,23 @@
 package uniandes.isis2304.alohandes.negocio;
 
 public class HabitacionCompartida{
-	
+
 	private long id;
-	
+
 	private String nombre;
-	
+
 	private String ubicacion;
-	
+
 	private String tipoHabitacion;
-	
+
 	private int precio;
-	
+
 	private int tamanhio;
-	
+
 	private long idEmpresaHotelera;
-	
+
 	private String horarioApertura;
-	
+
 	private String horarioCierre;
 
 	public HabitacionCompartida(long id, String nombre, String ubicacion, String tipoHabitacion, int precio,
@@ -103,5 +103,5 @@ public class HabitacionCompartida{
 
 	public void setHorarioCierre(String horarioCierre) {
 		this.horarioCierre = horarioCierre;
-	}	
+	}
 }

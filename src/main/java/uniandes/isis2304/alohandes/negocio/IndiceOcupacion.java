@@ -1,9 +1,9 @@
 package uniandes.isis2304.alohandes.negocio;
 
 public class IndiceOcupacion {
-	
+
 	private int indiceOcupacion;
-	
+
 	private long idAlohamiento;
 
 	public IndiceOcupacion(int indiceOcupacion, long idAlohamiento) {

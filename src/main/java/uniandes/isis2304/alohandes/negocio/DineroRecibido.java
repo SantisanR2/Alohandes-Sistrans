@@ -1,11 +1,11 @@
 package uniandes.isis2304.alohandes.negocio;
 
 public class DineroRecibido {
-	
+
 	private int dinero;
-	
+
 	private int anhio;
-	
+
 	private long idProveedor;
 
 	public DineroRecibido(int dinero, int anhio, long idProveedor) {

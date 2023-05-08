@@ -12,13 +12,13 @@ public class SQLReserva {
 	{
 		this.pp = pp;
 	}
-	
-    public long adicionarReserva (PersistenceManager pm, long idReserva, String fecha, int precio, 
-                                long idAlohamiento, long idUsuario) 
+
+    public long adicionarReserva (PersistenceManager pm, long idReserva, String fecha, int precio,
+                                long idAlohamiento, long idUsuario)
 	{
         Query q = pm.newQuery(SQL, "INSERT INTO " + pp.darTablaReserva  () + "(id, fecha, precio, idAlohamiento, idUsuario) values (?, ?, ?, ?, ?)");
         q.setParameters(idReserva, fecha, precio, idAlohamiento, idUsuario);
-        return (long) q.executeUnique();            
+        return (long) q.executeUnique();
 	}
 
 	/**
@@ -28,7 +28,7 @@ public class SQLReserva {
 	{
         Query q = pm.newQuery(SQL, "DELETE FROM " + pp.darTablaReserva  () + " WHERE fecha = ?");
         q.setParameters(fechaReserva);
-        return (long) q.executeUnique();            
+        return (long) q.executeUnique();
 	}
 
 }

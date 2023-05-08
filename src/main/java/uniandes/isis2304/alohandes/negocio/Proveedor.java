@@ -1,15 +1,15 @@
 package uniandes.isis2304.alohandes.negocio;
 
 public class Proveedor {
-	
+
 	private long id;
-	
+
 	private long idComunidad;
-	
+
 	private long idEmpresaHotelera;
-	
+
 	private long idPersonaNatural;
-	
+
 	private long idViviendaUniversitaria;
 
 	public Proveedor(long id, long idComunidad, long idEmpresaHotelera, long idPersonaNatural,

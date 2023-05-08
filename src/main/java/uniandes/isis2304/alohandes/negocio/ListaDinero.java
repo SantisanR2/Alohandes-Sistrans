@@ -1,11 +1,11 @@
 package uniandes.isis2304.alohandes.negocio;
 
 public class ListaDinero {
-	
+
 	private int dinero;
-	
+
 	private int anhio;
-	
+
 	private long idProveedor;
 
 	public ListaDinero(int dinero, int anhio, long idProveedor) {
@@ -14,7 +14,7 @@ public class ListaDinero {
 		this.anhio = anhio;
 		this.idProveedor = idProveedor;
 	}
-	
+
 	public ListaDinero() {
 		this.dinero = 0;
 		this.anhio = 0;
@@ -49,7 +49,7 @@ public class ListaDinero {
 	public String toString() {
 		return "[dinero=" + dinero + ", anhio=" + anhio + ", idProveedor=" + idProveedor + "]\n";
 	}
-	
-	
-	
+
+
+
 }

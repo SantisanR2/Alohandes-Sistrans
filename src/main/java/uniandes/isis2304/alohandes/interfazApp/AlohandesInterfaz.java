@@ -1,20 +1,24 @@
 package uniandes.isis2304.alohandes.interfazApp;
 
-import java.awt.*;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.*;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.SwingUtilities;
+import javax.swing.WindowConstants;
 
 import uniandes.isis2304.alohandes.persistencia.PersistenciaAlohandes;
 
 public class AlohandesInterfaz extends JFrame{
-	
+
 	private PersistenciaAlohandes pa;
-	
+
 	public AlohandesInterfaz() {
         // Configuración de la ventana principal
         setTitle("Interfaz Básica");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setLayout(new GridLayout(0, 2)); // Dos columnas
 
         // Creación de los botones
