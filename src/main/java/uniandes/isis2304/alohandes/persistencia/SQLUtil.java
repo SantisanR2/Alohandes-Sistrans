@@ -6,6 +6,7 @@ import java.util.List;
 import javax.jdo.PersistenceManager;
 import javax.jdo.Query;
 
+import uniandes.isis2304.alohandes.negocio.Analisis;
 import uniandes.isis2304.alohandes.negocio.ListaDinero;
 import uniandes.isis2304.alohandes.negocio.ListaIndiceOcupacion;
 import uniandes.isis2304.alohandes.negocio.OfertasPopulares;
@@ -40,16 +41,47 @@ public class SQLUtil {
 		return q.executeList();
 	}
 
-	public List<Integer> analizarInformacion(PersistenceManager pm) {
-		Query q = pm.newQuery(SQL, "SELECT fecha, COUNT(*) AS cantidad_reservas, SUM(dinero_costo) AS ingresos FROM reserva GROUP BY fecha ORDER BY cantidad_reservas DESC, ingresos DESC");
-		q.setResultClass(ListaIndiceOcupacion.class);
-		return q.executeList();
+	public List<Analisis> analizarInformacion(PersistenceManager pm, int i) {
+		Query q;
+		if(i == 0) {
+			q = pm.newQuery(SQL, "SELECT fecha, COUNT(*), SUM(precio) FROM reserva WHERE TO_DATE(fecha, 'yyyy-mm-dd') >= ADD_MONTHS(SYSDATE, -1) GROUP BY fecha ORDER BY COUNT(*) DESC, SUM(precio) DESC");
+		}
+		else {
+			q = pm.newQuery(SQL, "SELECT fecha, COUNT(*), SUM(precio) FROM reserva WHERE TRUNC(TO_DATE(fecha, 'yyyy-mm-dd'), 'IW') = TRUNC(SYSDATE, 'IW') GROUP BY fecha ORDER BY COUNT(*) DESC, SUM(precio) DESC");
+		}
+		q.setResultClass(Object[].class);
+	    List<Object[]> results = (List<Object[]>) q.executeList();
+
+	    List<Analisis> analisisList = new ArrayList<>();
+
+	    for (Object[] result : results) {
+	    	String fecha = (String) result[0];
+	        int count = ((Number) result[1]).intValue();
+	        int sum = ((Number) result[2]).intValue();
+	        analisisList.add(new Analisis(fecha, count, sum));
+	    }
+
+	    return analisisList;
 	}
 
-	public List<Usuario> darClientesFrecuentes(PersistenceManager pm, String tipo, Long id) {
-		Query q = pm.newQuery(SQL, "SELECT usuarios.* FROM usuarios INNER JOIN reserva r ON u.id = r.id_usuario INNER JOIN alojamientos a ON r.id_alojamiento = a.id WHERE a." + tipo + "= " + id + "GROUP BY u.id HAVING COUNT(*) >= 3");
-		q.setResultClass(ListaIndiceOcupacion.class);
-		return q.executeList();
+	public List<Usuario> darClientesFrecuentes(PersistenceManager pm, String tipo, Long pid) {
+		Query q = pm.newQuery(SQL, "SELECT usuario.* FROM usuario INNER JOIN reserva r ON usuario.id = r.idusuario INNER JOIN alohamiento a ON r.idalohamiento = a.id WHERE a."+ tipo +" = "+ pid +" GROUP BY usuario.id, usuario.nombre, usuario.cedula, usuario.edad, usuario.celular, usuario.vinculacion HAVING COUNT(*) >= 3");
+		q.setResultClass(Object[].class);
+	    List<Object[]> results = (List<Object[]>) q.executeList();
+
+	    List<Usuario> usuarioList = new ArrayList<>();
+
+	    for (Object[] result : results) {
+	    	Long id = ((Number) result[0]).longValue();
+	        String nombre = (String) result[1];
+	        String cedula = (String) result[2];
+	        int edad = ((Number) result[3]).intValue();
+	        String celular = (String) result[4];
+	        String vinculacion = (String) result[5];
+	        usuarioList.add(new Usuario(id, nombre, cedula, edad, celular, vinculacion));
+	    }
+
+	    return usuarioList;
 	}
 
 	public List<OfertasPopulares> darOfertasSinDemanda(PersistenceManager pm) {

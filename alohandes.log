@@ -50,3 +50,30 @@ ORA-00904: "DINERO_COSTO": identificador no válido
 
 12:12:59,678 (AWT-EventQueue-0) ERROR [uniandes.isis2304.alohandes.persistencia.PersistenciaAlohandes] - Exception : Cannot invoke "uniandes.isis2304.alohandes.negocio.UsoAlohandes.toString()" because "element" is null
 
+14:03:00,730 (AWT-EventQueue-0) ERROR [uniandes.isis2304.alohandes.persistencia.PersistenciaAlohandes] - Exception : Error con la ejecucion de Query de SQL "SELECT fecha, COUNT(*) AS cantidad_reservas, SUM(precio) AS ingresos FROM reserva WHERE TO_DATE(fecha, 'yyyy-mm-dd') >= ADD_MONTHS(SYSDATE, -1) GROUP BY fecha ORDER BY cantidad_reservas DESC, ingresos DESC".
+ORA-01830: la máscara de formato de fecha termina antes de convertir toda la cadena de entrada
+
+14:03:02,432 (AWT-EventQueue-0) ERROR [uniandes.isis2304.alohandes.persistencia.PersistenciaAlohandes] - Exception : Error con la ejecucion de Query de SQL "SELECT fecha, COUNT(*) AS cantidad_reservas, SUM(precio) AS ingresos FROM reserva WHERE TO_DATE(fecha, 'yyyy-mm-dd') >= ADD_MONTHS(SYSDATE, -1) GROUP BY fecha ORDER BY cantidad_reservas DESC, ingresos DESC".
+ORA-01830: la máscara de formato de fecha termina antes de convertir toda la cadena de entrada
+
+14:05:05,980 (AWT-EventQueue-0) ERROR [uniandes.isis2304.alohandes.persistencia.PersistenciaAlohandes] - Exception : Error con la ejecucion de Query de SQL "SELECT fecha, COUNT(*) AS cantidad_reservas, SUM(precio) AS ingresos FROM reserva WHERE TO_DATE(fecha, 'yyyy-mm-dd') >= ADD_MONTHS(SYSDATE, -1) GROUP BY fecha ORDER BY cantidad_reservas DESC, ingresos DESC".
+ORA-01830: la máscara de formato de fecha termina antes de convertir toda la cadena de entrada
+
+14:05:07,977 (AWT-EventQueue-0) ERROR [uniandes.isis2304.alohandes.persistencia.PersistenciaAlohandes] - Exception : Error con la ejecucion de Query de SQL "SELECT fecha, COUNT(*) AS cantidad_reservas, SUM(precio) AS ingresos FROM reserva WHERE TO_DATE(fecha, 'yyyy-mm-dd') >= ADD_MONTHS(SYSDATE, -1) GROUP BY fecha ORDER BY cantidad_reservas DESC, ingresos DESC".
+ORA-01830: la máscara de formato de fecha termina antes de convertir toda la cadena de entrada
+
+14:15:00,519 (AWT-EventQueue-0) ERROR [uniandes.isis2304.alohandes.persistencia.PersistenciaAlohandes] - Exception : Cannot call executeXXX method when query has result set to fecha, COUNT(*) AS cantidad_reservas, SUM(precio) AS ingresos. Use executeResultList() instead
+
+14:17:28,791 (AWT-EventQueue-0) ERROR [uniandes.isis2304.alohandes.persistencia.PersistenciaAlohandes] - Exception : Error con la ejecucion de Query de SQL "SELECT fecha, COUNT(*), SUM(precio) FROM reserva WHERE TO_DATE(fecha, 'yyyy-mm-dd') >= ADD_MONTHS(SYSDATE, -1) GROUP BY fecha ORDER BY COUNT(*) DESC, SUM(precio) DESC".
+ORA-01830: la máscara de formato de fecha termina antes de convertir toda la cadena de entrada
+
+14:22:31,378 (AWT-EventQueue-0) ERROR [uniandes.isis2304.alohandes.persistencia.PersistenciaAlohandes] - Exception : Cannot invoke "uniandes.isis2304.alohandes.negocio.OfertasPopulares.toString()" because "element" is null
+
+14:23:31,175 (AWT-EventQueue-0) ERROR [uniandes.isis2304.alohandes.persistencia.PersistenciaAlohandes] - Exception : Cannot invoke "uniandes.isis2304.alohandes.negocio.OfertasPopulares.toString()" because "element" is null
+
+14:46:31,997 (AWT-EventQueue-0) ERROR [uniandes.isis2304.alohandes.persistencia.PersistenciaAlohandes] - Exception : Cannot invoke "Object.toString()" because "element" is null
+
+14:48:48,696 (AWT-EventQueue-0) ERROR [uniandes.isis2304.alohandes.persistencia.PersistenciaAlohandes] - Exception : Cannot invoke "Object.toString()" because "element" is null
+
+14:54:28,688 (AWT-EventQueue-0) ERROR [uniandes.isis2304.alohandes.persistencia.PersistenciaAlohandes] - Exception : class java.math.BigDecimal cannot be cast to class java.lang.Long (java.math.BigDecimal and java.lang.Long are in module java.base of loader 'bootstrap')
+

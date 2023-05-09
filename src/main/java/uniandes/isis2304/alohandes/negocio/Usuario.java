@@ -71,4 +71,12 @@ public class Usuario {
 		this.vinculacion = vinculacion;
 	}
 
+	@Override
+	public String toString() {
+		return "id=" + id + ", nombre=" + nombre + ", cedula=" + cedula + ", edad=" + edad + ", celular="
+				+ celular + ", vinculacion=" + vinculacion;
+	}
+	
+	
+
 }

@@ -15,11 +15,13 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
+import uniandes.isis2304.alohandes.negocio.Analisis;
 import uniandes.isis2304.alohandes.negocio.ListaDinero;
 import uniandes.isis2304.alohandes.negocio.ListaIndiceOcupacion;
 import uniandes.isis2304.alohandes.negocio.OfertasPopulares;
 import uniandes.isis2304.alohandes.negocio.Reserva;
 import uniandes.isis2304.alohandes.negocio.UsoAlohandes;
+import uniandes.isis2304.alohandes.negocio.Usuario;
 
 
 public class PersistenciaAlohandes {
@@ -318,6 +320,66 @@ public class PersistenciaAlohandes {
             String str = "";
             for (UsoAlohandes element : resp) {
 				str += element.toString();
+			}
+            return str;
+        }
+        catch (Exception e)
+        {
+//        	e.printStackTrace();
+        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+            return "-1";
+        }
+        finally
+        {
+            if (tx.isActive())
+            {
+                tx.rollback();
+            }
+            pm.close();
+        }
+	}
+	
+	public String analizarInformacion(int i) {
+		PersistenceManager pm = pmf.getPersistenceManager();
+        Transaction tx=pm.currentTransaction();
+        try
+        {
+            tx.begin();
+            List<Analisis> resp = sqlUtil.analizarInformacion(pm, i);
+            tx.commit();
+            String str = "";
+            for (Analisis element : resp) {
+				str += element.toString()+ "\n";
+			}
+            return str;
+        }
+        catch (Exception e)
+        {
+//        	e.printStackTrace();
+        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+            return "-1";
+        }
+        finally
+        {
+            if (tx.isActive())
+            {
+                tx.rollback();
+            }
+            pm.close();
+        }
+	}
+	
+	public String darClientesFrecuentes(String tipo, Long id) {
+		PersistenceManager pm = pmf.getPersistenceManager();
+        Transaction tx=pm.currentTransaction();
+        try
+        {
+            tx.begin();
+            List<Usuario> resp = sqlUtil.darClientesFrecuentes(pm, tipo, id);
+            tx.commit();
+            String str = "";
+            for (Usuario element : resp) {
+				str += element.toString()+ "\n";
 			}
             return str;
         }

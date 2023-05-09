@@ -7,6 +7,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
@@ -140,19 +141,19 @@ public class AlohandesInterfaz extends JFrame{
             }
         });
         
-        JButton consulta5 = new JButton("Consulta 5");
+        JButton consulta5 = new JButton("Análisis de operación");
         consulta5.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                abrirNuevaVentana();
+                darAnalisis();
             }
         });
         
-        JButton consulta6 = new JButton("Consulta 6");
+        JButton consulta6 = new JButton("Clientes frecuentes");
         consulta6.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                abrirNuevaVentana();
+                darClientesFrecuentes();
             }
         });
         
@@ -236,6 +237,7 @@ public class AlohandesInterfaz extends JFrame{
         boton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+            	resp.setText("");
             	resp.setText(pa.darDineroRecibido(Integer.parseInt(txtAnhio.getText())));
             }
         });
@@ -356,7 +358,191 @@ public class AlohandesInterfaz extends JFrame{
         boton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+            	resp.setText("");
             	resp.setText(pa.darUsoAlohandes(Long.parseLong(txtCliente.getText())));
+            }
+        });
+    }
+    
+    private void darAnalisis() {
+    	JFrame ventana = new JFrame("Análisis de operación");
+    	ventana.setSize(800, 800);
+    	ventana.setLocationRelativeTo(this);
+    	ventana.setVisible(true);
+        ventana.setLayout(new GridBagLayout());
+        
+        GridBagConstraints constraints = new GridBagConstraints();
+        constraints.weightx = 1.0;
+        constraints.weighty = 0.0;
+        constraints.fill = GridBagConstraints.HORIZONTAL;
+        JLabel titulo = new JLabel("Análisis de operación", SwingConstants.CENTER);
+        JLabel tiempo = new JLabel("Tiempo: ", SwingConstants.CENTER);
+        String[] options = {"Mes", "Semana"};
+        JComboBox<String> cbTiempo = new JComboBox<>(options);
+        JLabel uso = new JLabel("Analisis: ", SwingConstants.CENTER);
+        JTextArea resp = new JTextArea();
+        resp.setEditable(false);
+        JButton boton = new JButton("Consultar");   
+        
+        constraints.gridx = 0;
+        constraints.gridy = 0;
+        constraints.gridwidth = 3;
+        constraints.gridheight = 1;
+        constraints.ipady = 80;    
+        ventana.add(titulo, constraints);
+        
+        constraints.gridx = 0;
+        constraints.gridy = 1;
+        constraints.gridwidth = 1;
+        constraints.gridheight = 1;
+        constraints.ipady = 80;    
+        ventana.add(tiempo, constraints);
+        
+        constraints.gridx = 1;
+        constraints.gridy = 1;
+        constraints.gridwidth = 1;
+        constraints.gridheight = 1;
+        constraints.ipady = 80;
+        ventana.add(cbTiempo, constraints);
+        
+        constraints.gridx = 2;
+        constraints.gridy = 1;
+        constraints.gridwidth = 1;
+        constraints.gridheight = 1;
+        constraints.ipady = 80;
+        ventana.add(boton, constraints);
+        
+        constraints.gridx = 0;
+        constraints.gridy = 2;
+        constraints.gridwidth = 1;
+        constraints.gridheight = 1;
+        ventana.add(uso, constraints);
+        
+        constraints.gridx = 1;
+        constraints.gridy = 2;
+        constraints.gridwidth = 2;
+        constraints.gridheight = 2;
+        ventana.add(resp, constraints);
+        
+        boton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            	int tiempo_resp;
+                
+                if(cbTiempo.getSelectedItem().equals("Mes")) {
+            		tiempo_resp = 0;
+            	}
+            	else {
+            		tiempo_resp = 1;
+            	}
+            	resp.setText("");
+            	resp.setText(pa.analizarInformacion(tiempo_resp));
+            }
+        });
+    }
+    
+    private void darClientesFrecuentes() {
+    	JFrame ventana = new JFrame("Clientes frecuentes");
+    	ventana.setSize(800, 800);
+    	ventana.setLocationRelativeTo(this);
+    	ventana.setVisible(true);
+        ventana.setLayout(new GridBagLayout());
+        
+        GridBagConstraints constraints = new GridBagConstraints();
+        constraints.weightx = 1.0;
+        constraints.weighty = 0.0;
+        constraints.fill = GridBagConstraints.HORIZONTAL;
+        JLabel titulo = new JLabel("Clientes frecuentes", SwingConstants.CENTER);
+        JLabel alojamiento = new JLabel("Alojamiento: ", SwingConstants.CENTER);
+        String[] options = {"Apartamento", "Habitación compartida", "Habitación vivienda", "Hotel", "Vivienda por día", "Vivienda por semestre"};
+        JComboBox<String> cbTiempo = new JComboBox<>(options);
+        JLabel cliente = new JLabel("ID Cliente: ", SwingConstants.CENTER);
+        JTextField txtCliente = new JTextField();
+        JLabel clientes = new JLabel("Clientes: ", SwingConstants.CENTER);
+        JTextArea resp = new JTextArea();
+        resp.setEditable(false);
+        JButton boton = new JButton("Consultar");   
+        
+        constraints.gridx = 0;
+        constraints.gridy = 0;
+        constraints.gridwidth = 3;
+        constraints.gridheight = 1;
+        constraints.ipady = 80;    
+        ventana.add(titulo, constraints);
+        
+        constraints.gridx = 0;
+        constraints.gridy = 1;
+        constraints.gridwidth = 1;
+        constraints.gridheight = 1;
+        constraints.ipady = 80;    
+        ventana.add(alojamiento, constraints);
+        
+        constraints.gridx = 1;
+        constraints.gridy = 1;
+        constraints.gridwidth = 1;
+        constraints.gridheight = 1;
+        constraints.ipady = 80;
+        ventana.add(cbTiempo, constraints);
+        
+        constraints.gridx = 0;
+        constraints.gridy = 2;
+        constraints.gridwidth = 1;
+        constraints.gridheight = 1;
+        constraints.ipady = 80;    
+        ventana.add(cliente, constraints);
+        
+        constraints.gridx = 1;
+        constraints.gridy = 2;
+        constraints.gridwidth = 1;
+        constraints.gridheight = 1;
+        constraints.ipady = 80;
+        ventana.add(txtCliente, constraints);
+        
+        constraints.gridx = 2;
+        constraints.gridy = 1;
+        constraints.gridwidth = 1;
+        constraints.gridheight = 1;
+        constraints.ipady = 80;
+        ventana.add(boton, constraints);
+        
+        constraints.gridx = 0;
+        constraints.gridy = 3;
+        constraints.gridwidth = 1;
+        constraints.gridheight = 1;
+        ventana.add(clientes, constraints);
+        
+        constraints.gridx = 1;
+        constraints.gridy = 3;
+        constraints.gridwidth = 2;
+        constraints.gridheight = 2;
+        ventana.add(resp, constraints);
+        
+        boton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            	String tipo = "";
+            	Long id = Long.parseLong(txtCliente.getText());
+                
+                if(cbTiempo.getSelectedItem().equals("Apartamento")) {
+                	tipo = "idapartamento";
+            	}
+            	else if (cbTiempo.getSelectedItem().equals("Habitación compartida")) {
+            		tipo = "idhabitacioncompartida";
+            	}
+            	else if (cbTiempo.getSelectedItem().equals("Habitación vivienda")) {
+            		tipo = "idhabitacionvivienda";
+            	}
+            	else if (cbTiempo.getSelectedItem().equals("Hotel")) {
+            		tipo = "idhotel";
+            	}
+            	else if (cbTiempo.getSelectedItem().equals("Vivienda por día")) {
+            		tipo = "idviviendapordia";
+            	}
+            	else if (cbTiempo.getSelectedItem().equals("Vivienda por semestre")) {
+            		tipo = "idviviendaporsemestre";
+            	}
+            	resp.setText("");
+            	resp.setText(pa.darClientesFrecuentes(tipo, id));
             }
         });
     }
