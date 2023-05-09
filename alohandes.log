@@ -24,3 +24,29 @@ ORA-00904: "IDALOHAMIENTO": identificador no válido
 
 17:44:13,363 (main) ERROR [uniandes.isis2304.alohandes.persistencia.PersistenciaAlohandes] - Exception : El Query tenia que devolver objetos de tipo "uniandes.isis2304.alohandes.negocio.ListaDinero" pero era imposible crear nueva instancia de este tipo! La clase de resultado necesita un constructor sin argumentos.
 
+11:52:25,462 (AWT-EventQueue-0) ERROR [uniandes.isis2304.alohandes.persistencia.PersistenciaAlohandes] - Exception : Error con la ejecucion de Query de SQL "SELECT COUNT(*) AS cantidad_reservas, SUM(dinero_costo) AS total_gastado FROM reserva WHERE idusuario = 1".
+ORA-00904: "DINERO_COSTO": identificador no válido
+
+11:52:29,850 (AWT-EventQueue-0) ERROR [uniandes.isis2304.alohandes.persistencia.PersistenciaAlohandes] - Exception : Error con la ejecucion de Query de SQL "SELECT COUNT(*) AS cantidad_reservas, SUM(dinero_costo) AS total_gastado FROM reserva WHERE idusuario = 2".
+ORA-00904: "DINERO_COSTO": identificador no válido
+
+11:52:30,637 (AWT-EventQueue-0) ERROR [uniandes.isis2304.alohandes.persistencia.PersistenciaAlohandes] - Exception : Error con la ejecucion de Query de SQL "SELECT COUNT(*) AS cantidad_reservas, SUM(dinero_costo) AS total_gastado FROM reserva WHERE idusuario = 2".
+ORA-00904: "DINERO_COSTO": identificador no válido
+
+11:52:33,123 (AWT-EventQueue-0) ERROR [uniandes.isis2304.alohandes.persistencia.PersistenciaAlohandes] - Exception : Error con la ejecucion de Query de SQL "SELECT COUNT(*) AS cantidad_reservas, SUM(dinero_costo) AS total_gastado FROM reserva WHERE idusuario = 3".
+ORA-00904: "DINERO_COSTO": identificador no válido
+
+11:56:27,958 (AWT-EventQueue-0) ERROR [uniandes.isis2304.alohandes.persistencia.PersistenciaAlohandes] - Exception : Cannot invoke "uniandes.isis2304.alohandes.negocio.UsoAlohandes.toString()" because "element" is null
+
+12:00:05,277 (AWT-EventQueue-0) ERROR [uniandes.isis2304.alohandes.persistencia.PersistenciaAlohandes] - Exception : class org.datanucleus.store.rdbms.query.ForwardQueryResult cannot be cast to class uniandes.isis2304.alohandes.negocio.UsoAlohandes (org.datanucleus.store.rdbms.query.ForwardQueryResult and uniandes.isis2304.alohandes.negocio.UsoAlohandes are in unnamed module of loader 'app')
+
+12:00:37,250 (AWT-EventQueue-0) ERROR [uniandes.isis2304.alohandes.persistencia.PersistenciaAlohandes] - Exception : class org.datanucleus.store.rdbms.query.ForwardQueryResult cannot be cast to class uniandes.isis2304.alohandes.negocio.UsoAlohandes (org.datanucleus.store.rdbms.query.ForwardQueryResult and uniandes.isis2304.alohandes.negocio.UsoAlohandes are in unnamed module of loader 'app')
+
+12:02:53,538 (AWT-EventQueue-0) ERROR [uniandes.isis2304.alohandes.persistencia.PersistenciaAlohandes] - Exception : Cannot invoke "uniandes.isis2304.alohandes.negocio.UsoAlohandes.toString()" because "element" is null
+
+12:05:04,288 (AWT-EventQueue-0) ERROR [uniandes.isis2304.alohandes.persistencia.PersistenciaAlohandes] - Exception : Cannot invoke "uniandes.isis2304.alohandes.negocio.UsoAlohandes.toString()" because "element" is null
+
+12:10:38,434 (AWT-EventQueue-0) ERROR [uniandes.isis2304.alohandes.persistencia.PersistenciaAlohandes] - Exception : Cannot invoke "uniandes.isis2304.alohandes.negocio.UsoAlohandes.toString()" because "element" is null
+
+12:12:59,678 (AWT-EventQueue-0) ERROR [uniandes.isis2304.alohandes.persistencia.PersistenciaAlohandes] - Exception : Cannot invoke "uniandes.isis2304.alohandes.negocio.UsoAlohandes.toString()" because "element" is null
+

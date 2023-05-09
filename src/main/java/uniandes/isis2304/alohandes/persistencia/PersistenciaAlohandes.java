@@ -19,6 +19,7 @@ import uniandes.isis2304.alohandes.negocio.ListaDinero;
 import uniandes.isis2304.alohandes.negocio.ListaIndiceOcupacion;
 import uniandes.isis2304.alohandes.negocio.OfertasPopulares;
 import uniandes.isis2304.alohandes.negocio.Reserva;
+import uniandes.isis2304.alohandes.negocio.UsoAlohandes;
 
 
 public class PersistenciaAlohandes {
@@ -286,6 +287,36 @@ public class PersistenciaAlohandes {
             tx.commit();
             String str = "";
             for (ListaIndiceOcupacion element : resp) {
+				str += element.toString();
+			}
+            return str;
+        }
+        catch (Exception e)
+        {
+//        	e.printStackTrace();
+        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+            return "-1";
+        }
+        finally
+        {
+            if (tx.isActive())
+            {
+                tx.rollback();
+            }
+            pm.close();
+        }
+	}
+	
+	public String darUsoAlohandes(Long id) {
+		PersistenceManager pm = pmf.getPersistenceManager();
+        Transaction tx=pm.currentTransaction();
+        try
+        {
+            tx.begin();
+            List<UsoAlohandes> resp = sqlUtil.darUsoAlohandes(pm, id);
+            tx.commit();
+            String str = "";
+            for (UsoAlohandes element : resp) {
 				str += element.toString();
 			}
             return str;
