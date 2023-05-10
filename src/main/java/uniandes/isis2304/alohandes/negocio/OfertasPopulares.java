@@ -4,7 +4,7 @@ public class OfertasPopulares {
 
 	@Override
 	public String toString() {
-		return "[idAlohamiento=" + idAlohamiento + "]\n";
+		return "idAlohamiento=" + idAlohamiento + "\n";
 	}
 
 	private long idAlohamiento;

@@ -6,6 +6,7 @@ import java.util.List;
 import javax.jdo.PersistenceManager;
 import javax.jdo.Query;
 
+import uniandes.isis2304.alohandes.negocio.Alohamiento;
 import uniandes.isis2304.alohandes.negocio.Analisis;
 import uniandes.isis2304.alohandes.negocio.ListaDinero;
 import uniandes.isis2304.alohandes.negocio.ListaIndiceOcupacion;
@@ -85,9 +86,18 @@ public class SQLUtil {
 	}
 
 	public List<OfertasPopulares> darOfertasSinDemanda(PersistenceManager pm) {
-		Query q = pm.newQuery(SQL, "SELECT * FROM alojamientos a LEFT JOIN reserva r ON a.id = r.id_alojamiento WHERE r.fecha_reserva IS NULL OR r.fecha_reserva < DATE_SUB(CURDATE(), INTERVAL 1 MONTH)");
-		q.setResultClass(OfertasPopulares.class);
-		return q.executeList();
+		Query q = pm.newQuery(SQL, "SELECT alohamiento.id FROM alohamiento LEFT JOIN reserva ON alohamiento.id = reserva.id WHERE reserva.fecha IS NULL OR TO_DATE(fecha, 'yyyy-mm-dd') >= ADD_MONTHS(SYSDATE, -1)");
+		q.setResultClass(Object[].class);
+	    List<Object[]> results = (List<Object[]>) q.executeList();
+
+	    List<OfertasPopulares> ofertasList = new ArrayList<>();
+
+	    for (Object[] result : results) {
+	    	Long id = ((Number) result[0]).longValue();
+	        ofertasList.add(new OfertasPopulares(id));
+	    }
+
+	    return ofertasList;
 	}
 
 	public List<UsoAlohandes> darUsoAlohandes(PersistenceManager pm, Long id) {

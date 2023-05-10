@@ -77,3 +77,15 @@ ORA-01830: la máscara de formato de fecha termina antes de convertir toda la ca
 
 14:54:28,688 (AWT-EventQueue-0) ERROR [uniandes.isis2304.alohandes.persistencia.PersistenciaAlohandes] - Exception : class java.math.BigDecimal cannot be cast to class java.lang.Long (java.math.BigDecimal and java.lang.Long are in module java.base of loader 'bootstrap')
 
+19:15:17,807 (AWT-EventQueue-0) ERROR [uniandes.isis2304.alohandes.persistencia.PersistenciaAlohandes] - Exception : Cannot invoke "Object.toString()" because "element" is null
+
+19:22:31,669 (AWT-EventQueue-0) ERROR [uniandes.isis2304.alohandes.persistencia.PersistenciaAlohandes] - Exception : Cannot invoke "Object.toString()" because "element" is null
+
+19:24:08,969 (AWT-EventQueue-0) ERROR [uniandes.isis2304.alohandes.persistencia.PersistenciaAlohandes] - Exception : Cannot invoke "uniandes.isis2304.alohandes.negocio.OfertasPopulares.toString()" because "element" is null
+
+19:29:29,749 (AWT-EventQueue-0) ERROR [uniandes.isis2304.alohandes.persistencia.PersistenciaAlohandes] - Exception : Cannot invoke "uniandes.isis2304.alohandes.negocio.OfertasPopulares.toString()" because "element" is null
+
+19:32:16,121 (AWT-EventQueue-0) ERROR [uniandes.isis2304.alohandes.persistencia.PersistenciaAlohandes] - Exception : Cannot invoke "uniandes.isis2304.alohandes.negocio.OfertasPopulares.toString()" because "element" is null
+
+20:18:12,235 (AWT-EventQueue-0) ERROR [uniandes.isis2304.alohandes.persistencia.PersistenciaAlohandes] - Exception : Cannot invoke "java.lang.Number.intValue()" because "result[1]" is null
+
