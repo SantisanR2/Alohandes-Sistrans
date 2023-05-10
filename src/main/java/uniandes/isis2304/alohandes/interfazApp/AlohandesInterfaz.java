@@ -456,7 +456,7 @@ public class AlohandesInterfaz extends JFrame{
         JLabel alojamiento = new JLabel("Alojamiento: ", SwingConstants.CENTER);
         String[] options = {"Apartamento", "Habitación compartida", "Habitación vivienda", "Hotel", "Vivienda por día", "Vivienda por semestre"};
         JComboBox<String> cbTiempo = new JComboBox<>(options);
-        JLabel cliente = new JLabel("ID Cliente: ", SwingConstants.CENTER);
+        JLabel cliente = new JLabel("ID Alojamiento: ", SwingConstants.CENTER);
         JTextField txtCliente = new JTextField();
         JLabel clientes = new JLabel("Clientes: ", SwingConstants.CENTER);
         JTextArea resp = new JTextArea();
