@@ -157,11 +157,11 @@ public class AlohandesInterfaz extends JFrame{
             }
         });
         
-        JButton consulta7 = new JButton("Consulta 7");
+        JButton consulta7 = new JButton("Ofertas sin demanda");
         consulta7.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                abrirNuevaVentana();
+                darOfertasSinDemanda();
             }
         });
         
@@ -592,7 +592,7 @@ public class AlohandesInterfaz extends JFrame{
         JLabel alojamiento = new JLabel("Alojamiento: ", SwingConstants.CENTER);
         String[] options = {"Apartamento", "Habitación compartida", "Habitación vivienda", "Hotel", "Vivienda por día", "Vivienda por semestre"};
         JComboBox<String> cbTiempo = new JComboBox<>(options);
-        JLabel cliente = new JLabel("ID Cliente: ", SwingConstants.CENTER);
+        JLabel cliente = new JLabel("ID Alojamiento: ", SwingConstants.CENTER);
         JTextField txtCliente = new JTextField();
         JLabel clientes = new JLabel("Clientes: ", SwingConstants.CENTER);
         JTextArea resp = new JTextArea();
@@ -681,6 +681,36 @@ public class AlohandesInterfaz extends JFrame{
             	resp.setText(pa.darClientesFrecuentes(tipo, id));
             }
         });
+    }
+    
+    private void darOfertasSinDemanda() {
+    	JFrame ventana = new JFrame("Ofertas sin demanda");
+    	ventana.setSize(350, 600);
+    	ventana.setLocationRelativeTo(this);
+    	ventana.setVisible(true);
+        ventana.setLayout(new GridBagLayout());
+        JLabel titulo = new JLabel("Ofertas sin demanda", SwingConstants.CENTER);
+        JTextArea resp = new JTextArea();
+        resp.setEditable(false);
+        
+        GridBagConstraints constraints = new GridBagConstraints();
+        constraints.weightx = 1.0;
+        constraints.weighty = 0.0;
+        constraints.fill = GridBagConstraints.HORIZONTAL;
+        
+        constraints.gridx = 0;
+        constraints.gridy = 0;
+        constraints.gridwidth = 1;
+        constraints.gridheight = 1;
+        constraints.ipady = 50;        
+        ventana.add(titulo, constraints);
+        
+        constraints.gridx = 0;
+        constraints.gridy = 1;
+        constraints.gridwidth = 2;
+        constraints.gridheight = 30;
+        resp.setText(pa.darOfertasSinDemandas());
+        ventana.add(resp, constraints);
     }
 
     public static void main(String[] args) {

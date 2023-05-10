@@ -400,6 +400,36 @@ public class PersistenciaAlohandes {
             pm.close();
         }
 	}
+	
+	public String darOfertasSinDemandas() {
+		PersistenceManager pm = pmf.getPersistenceManager();
+        Transaction tx=pm.currentTransaction();
+        try
+        {
+            tx.begin();
+            List<OfertasPopulares> resp = sqlUtil.darOfertasSinDemanda(pm);
+            tx.commit();
+            String str = "";
+            for (OfertasPopulares element : resp) {
+				str += element.toString();
+			}
+            return str;
+        }
+        catch (Exception e)
+        {
+//        	e.printStackTrace();
+        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+            return "-1";
+        }
+        finally
+        {
+            if (tx.isActive())
+            {
+                tx.rollback();
+            }
+            pm.close();
+        }
+	}
 
 	public String darTablaDineroRecibido() {
 		return "DINERORECIBIDO";
