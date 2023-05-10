@@ -8,6 +8,7 @@ import javax.jdo.JDOHelper;
 import javax.jdo.PersistenceManager;
 import javax.jdo.PersistenceManagerFactory;
 import javax.jdo.Transaction;
+import javax.swing.JOptionPane;
 
 import org.apache.log4j.Logger;
 
@@ -15,6 +16,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
+import uniandes.isis2304.alohandes.negocio.Alohamiento;
 import uniandes.isis2304.alohandes.negocio.Analisis;
 import uniandes.isis2304.alohandes.negocio.ListaDinero;
 import uniandes.isis2304.alohandes.negocio.ListaIndiceOcupacion;
@@ -405,5 +407,58 @@ public class PersistenciaAlohandes {
 
 	public String darTablaIndiceOcupacion() {
 		return "INDICEOCUPACION";
+	}
+
+    public long deshabilitarAloha (long idAlohamiento, String estado)
+	{
+		PersistenceManager pm = pmf.getPersistenceManager();
+        Transaction tx=pm.currentTransaction();
+        try
+        {
+            tx.begin();
+            long resp = sqlAlohamiento.deshabilitarAloha(pm, idAlohamiento, estado);
+            tx.commit();
+            return resp;
+        }
+        catch (Exception e)
+        {
+//        	e.printStackTrace();
+        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+            return -1;
+        }
+        finally
+        {
+            if (tx.isActive())
+            {
+                tx.rollback();
+            }
+            pm.close();
+        }
+	}
+    public long habilitarAloha (long idAlohamiento, String estado)
+	{
+		PersistenceManager pm = pmf.getPersistenceManager();
+        Transaction tx=pm.currentTransaction();
+        try
+        {
+            tx.begin();
+            long resp = sqlAlohamiento.habilitarAloha(pm, idAlohamiento, estado);
+            tx.commit();
+            return resp;
+        }
+        catch (Exception e)
+        {
+//        	e.printStackTrace();
+        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+            return -1;
+        }
+        finally
+        {
+            if (tx.isActive())
+            {
+                tx.rollback();
+            }
+            pm.close();
+        }
 	}
 }

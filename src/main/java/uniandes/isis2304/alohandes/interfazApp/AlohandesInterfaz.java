@@ -35,19 +35,19 @@ public class AlohandesInterfaz extends JFrame{
         JLabel consulta =  new JLabel("Consulta", SwingConstants.CENTER);
         
         // Creación de los botones
-        JButton modificacion1 = new JButton("Mod 1");
+        JButton modificacion1 = new JButton("Deshabilitar alohamiento");
         modificacion1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                abrirNuevaVentana();
+                deshabilitarAloha();
             }
         });
         
-        JButton modificacion2 = new JButton("Mod 2");
+        JButton modificacion2 = new JButton("Habilitar alohamiento");
         modificacion2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                abrirNuevaVentana();
+                habilitarAloha();
             }
         });
         
@@ -360,6 +360,142 @@ public class AlohandesInterfaz extends JFrame{
             public void actionPerformed(ActionEvent e) {
             	resp.setText("");
             	resp.setText(pa.darUsoAlohandes(Long.parseLong(txtCliente.getText())));
+            }
+        });
+    }
+
+    private void deshabilitarAloha() {
+    	JFrame ventana = new JFrame("Deshabilitar alohamiento");
+    	ventana.setSize(800, 200);
+    	ventana.setLocationRelativeTo(this);
+    	ventana.setVisible(true);
+        ventana.setLayout(new GridBagLayout());
+        
+        GridBagConstraints constraints = new GridBagConstraints();
+        constraints.weightx = 1.0;
+        constraints.weighty = 0.0;
+        constraints.fill = GridBagConstraints.HORIZONTAL;
+        
+        JLabel cliente = new JLabel("Estado: ", SwingConstants.CENTER);
+        JTextField txtCliente = new JTextField();
+        JLabel uso = new JLabel("Id Alohamiento: ", SwingConstants.CENTER);
+        JTextField txtAlohamiento = new JTextField();
+        JButton boton = new JButton("Consultar");   
+        
+        constraints.gridx = 0;
+        constraints.gridy = 0;
+        constraints.gridwidth = 1;
+        constraints.gridheight = 1;
+        constraints.ipady = 80;    
+        ventana.add(cliente, constraints);
+        
+        constraints.gridx = 1;
+        constraints.gridy = 0;
+        constraints.gridwidth = 1;
+        constraints.gridheight = 1;
+        constraints.ipady = 80;
+        ventana.add(txtCliente, constraints);
+        
+        constraints.gridx = 2;
+        constraints.gridy = 0;
+        constraints.gridwidth = 1;
+        constraints.gridheight = 1;
+        constraints.ipady = 80;
+        ventana.add(boton, constraints);
+        
+        constraints.gridx = 0;
+        constraints.gridy = 1;
+        constraints.gridwidth = 1;
+        constraints.gridheight = 1;
+        ventana.add(uso, constraints);
+
+        constraints.gridx = 1;
+        constraints.gridy = 0;
+        constraints.gridwidth = 1;
+        constraints.gridheight = 1;
+        constraints.ipady = 80;
+        ventana.add(txtAlohamiento, constraints);
+
+        constraints.gridx = 2;
+        constraints.gridy = 0;
+        constraints.gridwidth = 1;
+        constraints.gridheight = 1;
+        constraints.ipady = 80;
+        ventana.add(boton, constraints);
+        
+        
+        boton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            	Long idAlohamiento = Long.parseLong(txtCliente.getText());
+                String estado = "";
+            }
+        });
+    }
+
+    private void habilitarAloha() {
+    	JFrame ventana = new JFrame("Habilitar alohamiento");
+    	ventana.setSize(800, 200);
+    	ventana.setLocationRelativeTo(this);
+    	ventana.setVisible(true);
+        ventana.setLayout(new GridBagLayout());
+        
+        GridBagConstraints constraints = new GridBagConstraints();
+        constraints.weightx = 1.0;
+        constraints.weighty = 0.0;
+        constraints.fill = GridBagConstraints.HORIZONTAL;
+        
+        JLabel cliente = new JLabel("Estado: ", SwingConstants.CENTER);
+        JTextField txtCliente = new JTextField();
+        JLabel uso = new JLabel("Id Alohamiento: ", SwingConstants.CENTER);
+        JTextField txtAlohamiento = new JTextField();
+        JButton boton = new JButton("Consultar");   
+        
+        constraints.gridx = 0;
+        constraints.gridy = 0;
+        constraints.gridwidth = 1;
+        constraints.gridheight = 1;
+        constraints.ipady = 80;    
+        ventana.add(cliente, constraints);
+        
+        constraints.gridx = 1;
+        constraints.gridy = 0;
+        constraints.gridwidth = 1;
+        constraints.gridheight = 1;
+        constraints.ipady = 80;
+        ventana.add(txtCliente, constraints);
+        
+        constraints.gridx = 2;
+        constraints.gridy = 0;
+        constraints.gridwidth = 1;
+        constraints.gridheight = 1;
+        constraints.ipady = 80;
+        ventana.add(boton, constraints);
+        
+        constraints.gridx = 0;
+        constraints.gridy = 1;
+        constraints.gridwidth = 1;
+        constraints.gridheight = 1;
+        ventana.add(uso, constraints);
+
+        constraints.gridx = 1;
+        constraints.gridy = 0;
+        constraints.gridwidth = 1;
+        constraints.gridheight = 1;
+        constraints.ipady = 80;
+        ventana.add(txtAlohamiento, constraints);
+
+        constraints.gridx = 2;
+        constraints.gridy = 0;
+        constraints.gridwidth = 1;
+        constraints.gridheight = 1;
+        constraints.ipady = 80;
+        ventana.add(boton, constraints);
+        
+        boton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            	
             }
         });
     }

@@ -16,8 +16,10 @@ public class Alohamiento {
 
 	private long idViviendaPorSemestre;
 
+	private String estado;
+
 	public Alohamiento(long id, long idApartamento, long idHabitacionCompartida, long idHabitacionVivienda,
-			long idHotel, long idViviendaPorDia, long idViviendaPorSemestre) {
+			long idHotel, long idViviendaPorDia, long idViviendaPorSemestre, String estado) {
 		this.id = id;
 		this.idApartamento = idApartamento;
 		this.idHabitacionCompartida = idHabitacionCompartida;
@@ -25,6 +27,11 @@ public class Alohamiento {
 		this.idHotel = idHotel;
 		this.idViviendaPorDia = idViviendaPorDia;
 		this.idViviendaPorSemestre = idViviendaPorSemestre;
+		this.estado = estado;
+	}
+
+	public String getEstado(){
+		return estado;
 	}
 
 	public long getId() {
