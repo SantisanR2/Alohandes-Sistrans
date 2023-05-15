@@ -380,7 +380,7 @@ public class AlohandesInterfaz extends JFrame{
         JTextField txtCliente = new JTextField();
         JLabel uso = new JLabel("Id Alohamiento: ", SwingConstants.CENTER);
         JTextField txtAlohamiento = new JTextField();
-        JButton boton = new JButton("Consultar");   
+        JButton boton = new JButton("UPDATE");   
         
         constraints.gridx = 0;
         constraints.gridy = 0;
@@ -410,31 +410,26 @@ public class AlohandesInterfaz extends JFrame{
         ventana.add(uso, constraints);
 
         constraints.gridx = 1;
-        constraints.gridy = 0;
+        constraints.gridy = 1;
         constraints.gridwidth = 1;
         constraints.gridheight = 1;
         constraints.ipady = 80;
         ventana.add(txtAlohamiento, constraints);
-
-        constraints.gridx = 2;
-        constraints.gridy = 0;
-        constraints.gridwidth = 1;
-        constraints.gridheight = 1;
-        constraints.ipady = 80;
-        ventana.add(boton, constraints);
         
         
         boton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-            	Long idAlohamiento = Long.parseLong(txtCliente.getText());
-                String estado = "";
+            	Long idAlohamiento = Long.parseLong(txtAlohamiento.getText());
+                String estado = txtCliente.getText();
+                System.out.println(pa.deshabilitarAloha(idAlohamiento, estado));;
+                
             }
         });
     }
 
     private void habilitarAloha() {
-    	JFrame ventana = new JFrame("Habilitar alohamiento");
+    	JFrame ventana = new JFrame("Deshabilitar alohamiento");
     	ventana.setSize(800, 200);
     	ventana.setLocationRelativeTo(this);
     	ventana.setVisible(true);
@@ -449,7 +444,7 @@ public class AlohandesInterfaz extends JFrame{
         JTextField txtCliente = new JTextField();
         JLabel uso = new JLabel("Id Alohamiento: ", SwingConstants.CENTER);
         JTextField txtAlohamiento = new JTextField();
-        JButton boton = new JButton("Consultar");   
+        JButton boton = new JButton("UPDATE");   
         
         constraints.gridx = 0;
         constraints.gridy = 0;
@@ -479,23 +474,20 @@ public class AlohandesInterfaz extends JFrame{
         ventana.add(uso, constraints);
 
         constraints.gridx = 1;
-        constraints.gridy = 0;
+        constraints.gridy = 1;
         constraints.gridwidth = 1;
         constraints.gridheight = 1;
         constraints.ipady = 80;
         ventana.add(txtAlohamiento, constraints);
-
-        constraints.gridx = 2;
-        constraints.gridy = 0;
-        constraints.gridwidth = 1;
-        constraints.gridheight = 1;
-        constraints.ipady = 80;
-        ventana.add(boton, constraints);
+        
         
         boton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-            	
+            	Long idAlohamiento = Long.parseLong(txtAlohamiento.getText());
+                String estado = txtCliente.getText();
+                System.out.println(pa.habilitarAloha(idAlohamiento, estado));
+                
             }
         });
     }

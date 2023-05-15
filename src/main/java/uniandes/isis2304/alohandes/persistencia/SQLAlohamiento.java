@@ -25,15 +25,15 @@ public class SQLAlohamiento {
 
 	public long deshabilitarAloha (PersistenceManager pm, long idAlohamiento, String estado) 
 	{
-		 Query q = pm.newQuery(SQL, "UPDATE " + pp.darTablaAlohamiento () + " SET estado = ? WHERE id = ? ");
-	     q.setParameters(estado, idAlohamiento);
+		 Query q = pm.newQuery(SQL, "UPDATE " + pp.darTablaAlohamiento () + " SET estado = 'Deshabilitado' WHERE id = ? ");
+	     q.setParameters(idAlohamiento);
 	     return (long) q.executeUnique();            
 	}
 
 	public long habilitarAloha (PersistenceManager pm, long idAlohamiento, String estado) 
 	{
-		 Query q = pm.newQuery(SQL, "UPDATE " + pp.darTablaAlohamiento () + " SET estado = ? WHERE id = ? ");
-	     q.setParameters(estado, idAlohamiento);
+		 Query q = pm.newQuery(SQL, "UPDATE " + pp.darTablaAlohamiento () + " SET estado = 'Habilitado' WHERE id = ? ");
+	     q.setParameters(idAlohamiento);
 	     return (long) q.executeUnique();            
 	}
 }

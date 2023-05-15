@@ -97,7 +97,7 @@ public class PersistenciaAlohandes {
 
 	public String darTablaAlohamiento ()
 	{
-		return tablas.get (0);
+		return "ALOHAMIENTO";
 	}
 
 	public String darTablaReserva ()
