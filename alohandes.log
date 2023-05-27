@@ -103,3 +103,21 @@ ORA-01830: la máscara de formato de fecha termina antes de convertir toda la ca
 Índice de columna no válido
 14:22:57,309 (AWT-EventQueue-0) ERROR [uniandes.isis2304.alohandes.persistencia.PersistenciaAlohandes] - Exception : Error con la ejecucion de Query de SQL "UPDATE ALOHAMIENTO SET estado = '?' WHERE id = ?".
 Índice de columna no válido
+11:40:31,437 (AWT-EventQueue-0) ERROR [uniandes.isis2304.alohandes.persistencia.PersistenciaAlohandes] - Exception : Error con la ejecucion de Query de SQL "SELECT semana, MAX(alojamiento_reservas) AS alojamiento_max_reservas, MIN(alojamiento_reservas) AS alojamiento_min_reservas FROM (SELECT semana, idalohamiento AS alojamiento_reservas, ROW_NUMBER() OVER (PARTITION BY semana ORDER BY contador_reservas DESC) AS rn_max, ROW_NUMBER() OVER (PARTITION BY semana ORDER BY contador_reservas ASC) AS rn_min FROM (SELECT TO_CHAR(r.fecha, 'IW') AS semana, r.idalohamiento, COUNT(*) AS contador_reservas FROM RESERVA r GROUP BY TO_CHAR(r.fecha, 'IW'), r.idalohamiento) r) WHERE rn_max = 1 OR rn_min = 1 GROUP BY semana;".
+ORA-00933: comando SQL no terminado correctamente
+
+11:55:44,105 (AWT-EventQueue-0) ERROR [uniandes.isis2304.alohandes.persistencia.PersistenciaAlohandes] - Exception : Error con la ejecucion de Query de SQL "WITH meses AS (SELECT ADD_MONTHS(TO_DATE('01/01/2023', 'DD/MM/YYYY'), LEVEL - 1) AS fecha FROM DUAL CONNECT BY LEVEL <= MONTHS_BETWEEN(TRUNC(SYSDATE, 'MM'), TO_DATE('01/01/2023', 'DD/MM/YYYY')) + 1) SELECT u.* FROM USUARIO u WHERE (SELECT COUNT(DISTINCT EXTRACT(MONTH FROM r.fecha)) FROM meses m LEFT JOIN RESERVA r ON u.id = r.idusuario AND TRUNC(r.fecha, 'MM') = TRUNC(m.fecha, 'MM') WHERE r.idusuario IS NOT NULL) = (SELECT COUNT(*) FROM meses);".
+ORA-00933: comando SQL no terminado correctamente
+
+11:56:39,902 (AWT-EventQueue-0) ERROR [uniandes.isis2304.alohandes.persistencia.PersistenciaAlohandes] - Exception : class java.lang.Boolean cannot be cast to class java.util.List (java.lang.Boolean and java.util.List are in module java.base of loader 'bootstrap')
+
+12:05:50,546 (AWT-EventQueue-0) ERROR [uniandes.isis2304.alohandes.persistencia.PersistenciaAlohandes] - Exception : class java.lang.Boolean cannot be cast to class java.util.List (java.lang.Boolean and java.util.List are in module java.base of loader 'bootstrap')
+
+12:13:22,331 (AWT-EventQueue-0) ERROR [uniandes.isis2304.alohandes.persistencia.PersistenciaAlohandes] - Exception : class java.lang.Boolean cannot be cast to class java.util.List (java.lang.Boolean and java.util.List are in module java.base of loader 'bootstrap')
+
+12:24:04,278 (AWT-EventQueue-0) ERROR [uniandes.isis2304.alohandes.persistencia.PersistenciaAlohandes] - Exception : class java.lang.Boolean cannot be cast to class java.util.List (java.lang.Boolean and java.util.List are in module java.base of loader 'bootstrap')
+
+12:25:06,652 (AWT-EventQueue-0) ERROR [uniandes.isis2304.alohandes.persistencia.PersistenciaAlohandes] - Exception : class java.lang.Boolean cannot be cast to class java.util.List (java.lang.Boolean and java.util.List are in module java.base of loader 'bootstrap')
+
+14:37:00,603 (AWT-EventQueue-0) ERROR [uniandes.isis2304.alohandes.persistencia.PersistenciaAlohandes] - Exception : class java.lang.Boolean cannot be cast to class java.util.List (java.lang.Boolean and java.util.List are in module java.base of loader 'bootstrap')
+

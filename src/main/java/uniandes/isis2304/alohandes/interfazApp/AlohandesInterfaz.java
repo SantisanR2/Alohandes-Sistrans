@@ -109,35 +109,35 @@ public class AlohandesInterfaz extends JFrame{
         
         //LABEL
         
-        JButton consulta1 = new JButton("Dinero por año");
+        JButton consulta1 = new JButton("Consumo Alohandes");
         consulta1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-            	darDineroPorAnhio();
+            	darConsumoAlohandes();
             }
         });
         
-        JButton consulta2 = new JButton("Ofertas mas populares");
+        JButton consulta2 = new JButton("Consumo Alohandes v2");
         consulta2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-            	darOfertasMasPopulares();
+            	darConsumoAlohandesV2();
             }
         });
         
-        JButton consulta3 = new JButton("Indice de ocupación");
+        JButton consulta3 = new JButton("Funcionamiento");
         consulta3.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-            	darIndiceOcupacion();
+            	darFuncionamientoAlohandes();
             }
         });
         
-        JButton consulta4 = new JButton("Uso Alohandes");
+        JButton consulta4 = new JButton("Buenos clientes");
         consulta4.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-            	darUsoAlohandes();
+            	darBuenosClientes();
             }
         });
         
@@ -702,6 +702,254 @@ public class AlohandesInterfaz extends JFrame{
         constraints.gridwidth = 2;
         constraints.gridheight = 30;
         resp.setText(pa.darOfertasSinDemandas());
+        ventana.add(resp, constraints);
+    }
+    
+    private void darConsumoAlohandes() {
+    	JFrame ventana = new JFrame("Consumo Alohandes");
+    	ventana.setSize(800, 500);
+    	ventana.setLocationRelativeTo(this);
+    	ventana.setVisible(true);
+        ventana.setLayout(new GridBagLayout());
+        
+        GridBagConstraints constraints = new GridBagConstraints();
+        constraints.weightx = 1.0;
+        constraints.weighty = 0.0;
+        constraints.fill = GridBagConstraints.HORIZONTAL;
+        
+        JLabel vacio = new JLabel(" ", SwingConstants.CENTER);
+        
+        JLabel fechaInicio = new JLabel("Fecha Inicial: ", SwingConstants.CENTER);
+        JTextField txtFechaInicio = new JTextField();
+        JLabel fechaFinal = new JLabel("Fecha Final: ", SwingConstants.CENTER);
+        JTextField txtFechaFinal = new JTextField();
+        JLabel usuarios = new JLabel("Usuarios: ", SwingConstants.CENTER);
+        String[] options = {"Datos del cliente", "Oferta de alojamiento"};
+        JComboBox<String> cbOrdenamiento = new JComboBox<>(options);
+        JTextArea resp = new JTextArea();
+        resp.setEditable(false);
+        JButton boton = new JButton("Consultar");   
+        
+        constraints.gridx = 0;
+        constraints.gridy = 0;
+        constraints.gridwidth = 1;
+        constraints.gridheight = 1;
+        constraints.ipady = 80;    
+        ventana.add(fechaInicio, constraints);
+        
+        constraints.gridx = 1;
+        constraints.gridy = 0;
+        constraints.gridwidth = 1;
+        constraints.gridheight = 1;
+        constraints.ipady = 80;
+        ventana.add(txtFechaInicio, constraints);
+        
+        constraints.gridx = 2;
+        constraints.gridy = 0;
+        constraints.gridwidth = 1;
+        constraints.gridheight = 1;
+        constraints.ipady = 80;
+        ventana.add(boton, constraints);
+        
+        constraints.gridx = 0;
+        constraints.gridy = 1;
+        constraints.gridwidth = 1;
+        constraints.gridheight = 1;
+        ventana.add(fechaFinal, constraints);
+        
+        constraints.gridx = 1;
+        constraints.gridy = 1;
+        constraints.gridwidth = 1;
+        constraints.gridheight = 1;
+        ventana.add(txtFechaFinal, constraints);
+        
+        constraints.gridx = 2;
+        constraints.gridy = 1;
+        constraints.gridwidth = 1;
+        constraints.gridheight = 1;
+        ventana.add(cbOrdenamiento, constraints);
+        
+        constraints.gridx = 0;
+        constraints.gridy = 2;
+        constraints.gridwidth = 1;
+        constraints.gridheight = 1;
+        ventana.add(usuarios, constraints);
+        
+        constraints.gridx = 1;
+        constraints.gridy = 2;
+        constraints.gridwidth = 2;
+        constraints.gridheight = 1;
+        ventana.add(resp, constraints);
+        
+        boton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            	String date1 = txtFechaInicio.getText();
+            	String date2 = txtFechaFinal.getText();
+            	int or;
+            	if (cbOrdenamiento.getSelectedItem().equals("Datos del cliente")) {
+            		or = 0;
+            	}
+            	else {
+            		or = 1;
+            	}
+            	resp.setText("");
+            	resp.setText(pa.darConsumoAlohandes(date1, date2, or));
+            }
+        });
+    }
+    
+    private void darConsumoAlohandesV2() {
+    	JFrame ventana = new JFrame("Consumo Alohandes");
+    	ventana.setSize(800, 500);
+    	ventana.setLocationRelativeTo(this);
+    	ventana.setVisible(true);
+        ventana.setLayout(new GridBagLayout());
+        
+        GridBagConstraints constraints = new GridBagConstraints();
+        constraints.weightx = 1.0;
+        constraints.weighty = 0.0;
+        constraints.fill = GridBagConstraints.HORIZONTAL;
+        
+        JLabel vacio = new JLabel(" ", SwingConstants.CENTER);
+        
+        JLabel fechaInicio = new JLabel("Fecha Inicial: ", SwingConstants.CENTER);
+        JTextField txtFechaInicio = new JTextField();
+        JLabel fechaFinal = new JLabel("Fecha Final: ", SwingConstants.CENTER);
+        JTextField txtFechaFinal = new JTextField();
+        JLabel usuarios = new JLabel("Usuarios: ", SwingConstants.CENTER);
+        String[] options = {"Datos del cliente", "Oferta de alojamiento"};
+        JComboBox<String> cbOrdenamiento = new JComboBox<>(options);
+        JTextArea resp = new JTextArea();
+        resp.setEditable(false);
+        JButton boton = new JButton("Consultar");   
+        
+        constraints.gridx = 0;
+        constraints.gridy = 0;
+        constraints.gridwidth = 1;
+        constraints.gridheight = 1;
+        constraints.ipady = 80;    
+        ventana.add(fechaInicio, constraints);
+        
+        constraints.gridx = 1;
+        constraints.gridy = 0;
+        constraints.gridwidth = 1;
+        constraints.gridheight = 1;
+        constraints.ipady = 80;
+        ventana.add(txtFechaInicio, constraints);
+        
+        constraints.gridx = 2;
+        constraints.gridy = 0;
+        constraints.gridwidth = 1;
+        constraints.gridheight = 1;
+        constraints.ipady = 80;
+        ventana.add(boton, constraints);
+        
+        constraints.gridx = 0;
+        constraints.gridy = 1;
+        constraints.gridwidth = 1;
+        constraints.gridheight = 1;
+        ventana.add(fechaFinal, constraints);
+        
+        constraints.gridx = 1;
+        constraints.gridy = 1;
+        constraints.gridwidth = 1;
+        constraints.gridheight = 1;
+        ventana.add(txtFechaFinal, constraints);
+        
+        constraints.gridx = 2;
+        constraints.gridy = 1;
+        constraints.gridwidth = 1;
+        constraints.gridheight = 1;
+        ventana.add(cbOrdenamiento, constraints);
+        
+        constraints.gridx = 0;
+        constraints.gridy = 2;
+        constraints.gridwidth = 1;
+        constraints.gridheight = 1;
+        ventana.add(usuarios, constraints);
+        
+        constraints.gridx = 1;
+        constraints.gridy = 2;
+        constraints.gridwidth = 2;
+        constraints.gridheight = 1;
+        ventana.add(resp, constraints);
+        
+        boton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            	String date1 = txtFechaInicio.getText();
+            	String date2 = txtFechaFinal.getText();
+            	int or;
+            	if (cbOrdenamiento.getSelectedItem().equals("Datos del cliente")) {
+            		or = 0;
+            	}
+            	else {
+            		or = 1;
+            	}
+            	resp.setText("");
+            	resp.setText(pa.darConsumoAlohandesV2(date1, date2, or));
+            }
+        });
+    }
+    
+    private void darFuncionamientoAlohandes() {
+    	JFrame ventana = new JFrame("Funcionamiento Alohandes");
+    	ventana.setSize(350, 600);
+    	ventana.setLocationRelativeTo(this);
+    	ventana.setVisible(true);
+        ventana.setLayout(new GridBagLayout());
+        JLabel titulo = new JLabel("Funcionamiento Alohandes", SwingConstants.CENTER);
+        JTextArea resp = new JTextArea();
+        resp.setEditable(false);
+        
+        GridBagConstraints constraints = new GridBagConstraints();
+        constraints.weightx = 1.0;
+        constraints.weighty = 0.0;
+        constraints.fill = GridBagConstraints.HORIZONTAL;
+        
+        constraints.gridx = 0;
+        constraints.gridy = 0;
+        constraints.gridwidth = 1;
+        constraints.gridheight = 1;
+        constraints.ipady = 50;        
+        ventana.add(titulo, constraints);
+        
+        constraints.gridx = 0;
+        constraints.gridy = 1;
+        constraints.gridwidth = 2;
+        constraints.gridheight = 30;
+        resp.setText(pa.darFuncionamiento());
+        ventana.add(resp, constraints);
+    }
+    
+    private void darBuenosClientes() {
+    	JFrame ventana = new JFrame("Buenos Clientes");
+    	ventana.setSize(350, 600);
+    	ventana.setLocationRelativeTo(this);
+    	ventana.setVisible(true);
+        ventana.setLayout(new GridBagLayout());
+        JLabel titulo = new JLabel("Buenos Clientes", SwingConstants.CENTER);
+        JTextArea resp = new JTextArea();
+        resp.setEditable(false);
+        
+        GridBagConstraints constraints = new GridBagConstraints();
+        constraints.weightx = 1.0;
+        constraints.weighty = 0.0;
+        constraints.fill = GridBagConstraints.HORIZONTAL;
+        
+        constraints.gridx = 0;
+        constraints.gridy = 0;
+        constraints.gridwidth = 1;
+        constraints.gridheight = 1;
+        constraints.ipady = 50;        
+        ventana.add(titulo, constraints);
+        
+        constraints.gridx = 0;
+        constraints.gridy = 1;
+        constraints.gridwidth = 2;
+        constraints.gridheight = 30;
+        resp.setText(pa.darBuenosClientes());
         ventana.add(resp, constraints);
     }
 

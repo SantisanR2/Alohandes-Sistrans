@@ -18,6 +18,7 @@ import com.google.gson.JsonObject;
 
 import uniandes.isis2304.alohandes.negocio.Alohamiento;
 import uniandes.isis2304.alohandes.negocio.Analisis;
+import uniandes.isis2304.alohandes.negocio.Funcionamiento;
 import uniandes.isis2304.alohandes.negocio.ListaDinero;
 import uniandes.isis2304.alohandes.negocio.ListaIndiceOcupacion;
 import uniandes.isis2304.alohandes.negocio.OfertasPopulares;
@@ -412,6 +413,126 @@ public class PersistenciaAlohandes {
             String str = "";
             for (OfertasPopulares element : resp) {
 				str += element.toString();
+			}
+            return str;
+        }
+        catch (Exception e)
+        {
+//        	e.printStackTrace();
+        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+            return "-1";
+        }
+        finally
+        {
+            if (tx.isActive())
+            {
+                tx.rollback();
+            }
+            pm.close();
+        }
+	}
+	
+	public String darConsumoAlohandes(String date1, String date2, int or) {
+		PersistenceManager pm = pmf.getPersistenceManager();
+        Transaction tx=pm.currentTransaction();
+        try
+        {
+            tx.begin();
+            List<Usuario> resp = sqlUtil.darConsumoAlohandes(pm, date1, date2, or);
+            tx.commit();
+            String str = "";
+            for (Usuario element : resp) {
+				str += element.toString()+ "\n";
+			}
+            return str;
+        }
+        catch (Exception e)
+        {
+//        	e.printStackTrace();
+        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+            return "-1";
+        }
+        finally
+        {
+            if (tx.isActive())
+            {
+                tx.rollback();
+            }
+            pm.close();
+        }
+	}
+	
+	public String darConsumoAlohandesV2(String date1, String date2, int or) {
+		PersistenceManager pm = pmf.getPersistenceManager();
+        Transaction tx=pm.currentTransaction();
+        try
+        {
+            tx.begin();
+            List<Usuario> resp = sqlUtil.darConsumoAlohandesV2(pm, date1, date2, or);
+            tx.commit();
+            String str = "";
+            for (Usuario element : resp) {
+				str += element.toString()+ "\n";
+			}
+            return str;
+        }
+        catch (Exception e)
+        {
+//        	e.printStackTrace();
+        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+            return "-1";
+        }
+        finally
+        {
+            if (tx.isActive())
+            {
+                tx.rollback();
+            }
+            pm.close();
+        }
+	}
+	
+	public String darFuncionamiento() {
+		PersistenceManager pm = pmf.getPersistenceManager();
+        Transaction tx=pm.currentTransaction();
+        try
+        {
+            tx.begin();
+            List<Funcionamiento> resp = sqlUtil.darFuncionamiento(pm);
+            tx.commit();
+            String str = "";
+            for (Funcionamiento element : resp) {
+				str += element.toString()+ "\n";
+			}
+            return str;
+        }
+        catch (Exception e)
+        {
+//        	e.printStackTrace();
+        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+            return "-1";
+        }
+        finally
+        {
+            if (tx.isActive())
+            {
+                tx.rollback();
+            }
+            pm.close();
+        }
+	}
+	
+	public String darBuenosClientes() {
+		PersistenceManager pm = pmf.getPersistenceManager();
+        Transaction tx=pm.currentTransaction();
+        try
+        {
+            tx.begin();
+            List<Usuario> resp = sqlUtil.darBuenosClientes(pm);
+            tx.commit();
+            String str = "";
+            for (Usuario element : resp) {
+				str += element.toString()+ "\n";
 			}
             return str;
         }
